@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 2rem;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+h1 {
+  grid-column: 1 / -1;
+}
+
+form {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 2rem;
+}
+
+.form-message {
+  grid-column: 1 / -1;
+}
+
+.field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 2rem;
+}
+
+.field-note {
+  align-self: center;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.field-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.field-row:first-of-type .field-control {
+  border-top: 1px solid #000;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.65rem 1rem;
+}
+
+@media (max-width: 640px) {
+  main {
+    grid-template-columns: 1fr;
+    column-gap: 1rem;
+    padding: 1rem;
+  }
+
+  form,
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .field-note {
+    padding-bottom: 0.25rem;
+  }
+
+  .field-control {
+    padding: 1rem;
+  }
+
+  .submit-row > span {
+    display: none;
+  }
+}
