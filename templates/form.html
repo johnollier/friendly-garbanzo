@@ -1,76 +1,201 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact form</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  </head>
-  <body>
-    <main>
-      <h1>Contact form</h1>
-      <form method="post" aria-label="Contact details">
-        {% if error %}
-          <p class="form-message" role="alert">{{ error }}</p>
-        {% endif %}
-        {% if submitted %}
-          <p class="form-message" role="status">Thanks for your submission.</p>
-        {% endif %}
-        <div class="field-row">
-          <p class="field-note">Enter your full name.</p>
-          <div class="field-control">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required>
-          </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transfer</title>
+   <!-- Google Fonts Embed Code -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Geo&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <main>
+    <h1>TR1</h1>
+    <h2>HM Land Registry</h2>
+    <h3>Transfer of whole of registered title(s)</h3>
+    <form method="post" aria-label="transfer details">
+      {% if error %}
+      <p class="form-message" role="alert">{{ error }}</p>
+      {% endif %}
+      {% if submitted %}
+      <p class="form-message" role="status">Thanks for your submission.</p>
+      {% endif %}
+      <section class="grid-table" role="table">
+        <div class="field-note">
+          <p>Leave blank if not yet registered.</p>
+        </div>
+        <div class="field-control field-control-top">
+          <p>1. Title number(s) of the property:</p>
+          <input id="title-numbers" name="title-numbers" type="text" required>
         </div>
 
-        <div class="field-row">
-          <p class="field-note">Provide an email address where we can reach you.</p>
-          <div class="field-control">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="text" required>
-          </div>
+        <div class="field-note">
+          <p>Insert address including postcode (if any) or other description of the property, for
+            example 'land adjoining 2 Acacia Avenue'.</p>
+        </div>
+        <div class="field-control">
+          <p>2. Property:</p>
+          <input id="property" name="property type=" text" required>
         </div>
 
-        <div class="field-row">
-          <p class="field-note">Include your area or country code.</p>
-          <div class="field-control">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="text" required>
-          </div>
+        <div class="field-note">
+          <p>Remember to date this deed with the day of completion, but not before it has been signed
+            and witnessed.</p>
+        </div>
+        <div class="field-control">
+          <p>3. Date:</p>
+          <input id="date" name="date" type="text" required>
         </div>
 
-        <div class="field-row">
-          <p class="field-note">Enter your company, school, or organization.</p>
-          <div class="field-control">
-            <label for="organization">Organization</label>
-            <input id="organization" name="organization" type="text" required>
-          </div>
+        <div class="field-note">
+          <p>Give full name(s) of all the persons transferring the property.</p>
+          <p>Complete as appropriate where the transferor is a company.</p>
+          <p>Enter the overseas entity ID issued by Companies House for the transferor pursuant to the Economic Crime
+            (Transparency and Enforcement) Act 2022. If the ID is not required, you may instead state 'not required'.
+          </p>
+          <p>Further details on overseas entities can be found in practice guide 78: overseas entities.</p>
+        </div>
+        <div class="field-control">
+          <p>4. Transferor:</p>
+          <input id="transferor" name="transferor" type="text" required>
+          <h4>UK incorporated companies/LLPs</h4>
+          <p>Registered number of company or limited liability partnership including any prefix:</p>
+          <h4>For overseas entities</h4>
+          <p>(a) Territory of incorporation or formation:</p>
+          <input id="territory" name="territory" type="text" required>
+          <p>(b) Overseas entity ID issued by Companies House, including any prefix:</p>
+          <input id="overseas" name="overseas" type="text" required>
+          <p>(c) Where the entity is a company with a place of business in the United
+            Kingdom,
+            the registered number, if any, issued by Companies House, including any prefix:</p>
+          <input id="company-number" name="overseas" type="text" required>
+        </div>
+        <div class="field-note">
+          <p>Give full name(s) of all the persons to be shown as registered proprietors.</p>
+          <p>Complete as appropriate where the transferee is a company. Also, for an overseas company, unless an
+            arrangement with HM Land Registry exists, lodge either a certificate in Form 7 in Schedule 3 to the Land
+            Registration Rules 2003 or a certified copy of the constitution in English or Welsh, or other evidence
+            permitted by rule 183 of the Land Registration Rules 2003.</p>
+          <p>Enter the overseas entity ID issued by Companies House for the transferee pursuant to the Economic Crime
+            (Transparency and Enforcement) Act 2022. If the ID is not required, you may instead state ‘not required’.
+          </p>
+          <p>Further details on overseas entities can be found in practice guide 78: overseas entities.</p>
+        </div>
+        <div class="field-control">
+          <p>5. Transferee for entry in the register</p>
+          <input id="transferee" name="transferee" type="text" required>
+          <h4>UK incorporated companies/LLPs</h4>
+          <p>Registered number of company or limited liability partnership including any prefix:</p>
+          <h4>For overseas entities</h4>
+          <p>(a) Territory of incorporation or formation:</p>
+          <input id="territory" name="territory" type="text" required>
+          <p>(b) Overseas entity ID issued by Companies House, including any prefix:</p>
+          <input id="overseas" name="overseas" type="text" required>
+          <p>(c) Where the entity is a company with a place of business in the United
+            Kingdom,
+            the registered number, if any, issued by Companies House, including any prefix:</p>
+          <input id="company-number" name="overseas" type="text" required>
         </div>
 
-        <div class="field-row">
-          <p class="field-note">Summarize the reason for your message.</p>
-          <div class="field-control">
-            <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" required>
-          </div>
+        <div class="field-note">
+          <p>Each transferee may give up to three addresses for service, one of which must be a postal address whether
+            or not in the UK (including the postcode, if any). The others can be any combination of a postal address,
+            a
+            UK DX box number or an email address. </p>
+        </div>
+        <div class="field-control">
+          <p>6. Transferee's intended address(es) for service for entry in the
+            register:</p>
+          <input id="address-for-service" name="address-for-service type=" text" required>
         </div>
 
-        <div class="field-row">
-          <p class="field-note">Add any details that will help us respond.</p>
-          <div class="field-control">
-            <label for="message">Message</label>
-            <input id="message" name="message" type="text" required>
-          </div>
+        <div class="field-note">
+        </div>
+        <div class="field-control">
+          <p>7. The transferor transfers the property to the transferee</p>
         </div>
 
-        <div class="field-row submit-row">
-          <span aria-hidden="true"></span>
-          <div class="field-control">
-            <button type="submit">Submit</button>
-          </div>
+        <div class="field-note">
+          <p>Place 'X' in the appropriate box. State the currency unit if other than sterling. If none of the boxes
+            apply, insert an appropriate memorandum in panel 11. </p>
         </div>
-      </form>
-    </main>
-  </body>
+        <div class="field-control">
+          <p>8. Consideration</p>
+          <p>The transferor has received from the transferee for the property the following
+            sum
+            (in words and figures):</p>
+          <input id="consideration" name="consideration" type="text" required>
+        </div>
+
+        <div class="field-note">
+          <p>Place 'X' in any box that applies.</p>
+          <p>Add any modifications.</p>
+        </div>
+        <div class="field-control">
+          <p>9. The transferor transfers with</p>
+          <p>full title guarantee</p>
+          <input id="full-title-guarantee" name="full-title-guarantee" type="radio" required>
+          <p>limited title guarantee</p>
+          <input id="limited" name="limited" type="radio" required>
+        </div>
+
+        <div class="field-note">
+          <p>Where the transferee is more than one person, place 'X' in the appropriate box.</p>
+          <p>Complete as necessary.</p>
+          <p>The registrar will enter a Form A restriction in the register unless:</p>
+          <ul>
+            <li>an 'X' is placed:</li>
+            <li>in the first box, or</li>
+            <li>in the third box and the details ofthe trust or of the trustinstrument show that thetransferees are to
+              hold theproperty on trust for themselvesalone as joint tenants, or</li>
+            <li>it is clear from completion of a formJO lodged with this application thatthe transferees are to hold
+              theproperty on trust for themselvesalone as joint tenants.</li>
+          </ul>
+        </div>
+        <div class="field-control">
+          <p>10. Declaration of trust. The transferee is more than one person and</p>
+          <input id="joint-tenants" name="joint-tenants" type="radio" required>
+          <p>they are to hold the property on trust for themselves as joint tenants</p>
+          <input id="tenants-in-common" name="tenants-in-common" type="radio" required>
+          <p>they are to hold the property on trust for themselves as tenants in common in
+            equal shares</p>
+        </div>
+
+        <div class="field-note">
+          <p>Insert here any required or permitted statement, certificate or application and any agreed covenants,
+            declarations and so on. </p>
+        </div>
+        <div class="field-control">
+          <p>11. Additional provisions</p>
+          <input id="additional-provisions" name="additional-provisions" type="text" required>
+        </div>
+
+        <div class="field-note">
+          <p>The transferor must execute this transfer as a deed using the space opposite. If there is more than one
+            transferor, all must execute. Forms of execution are given in Schedule 9 to the Land Registration Rules
+            2003. If the transfer contains transferee’s covenants or declarations or contains an application by the
+            transferee (such as for a restriction), it must also be executed by the transferee.
+          </p>
+          <p>If there is more than one transferee and panel 10 has been completed, each transferee must also execute
+            this transfer to comply with the requirements in section 53(1)(b) of the Law of Property Act 1925 relating
+            to the declaration of a trust of land. Please refer to Joint property ownership and practice guide 24:
+            private trusts of land for further guidance.</p>
+          <p>Examples of the correct form of execution are set out in practice guide 8: execution of deeds. Execution
+            as
+            a deed usually means that a witness must also sign, and add their name and address.</p>
+        </div>
+        <div class="field-control">
+          <p>12. Execution</p>
+          <input id="execution" name="execution" type="text" required>
+        </div>
+      </section>
+
+    </form>
+  </main>
+</body>
+
 </html>
