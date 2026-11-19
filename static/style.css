@@ -4,90 +4,66 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: lightgrey;
 }
 
 main {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 2rem;
-  min-height: 100vh;
-  padding: 2rem;
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  background-color: white;
 }
 
 h1 {
-  grid-column: 1 / -1;
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 5.5em;
+  font-weight: 500;
+  text-align: right;
+  margin-top: 0.1em;
 }
 
-form {
-  grid-column: 1 / -1;
+h2 {
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 2.0em;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: 'Tomorrow', sans-serif;
+  color: gray;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.grid-header {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 2rem;
+  grid-template-columns: auto auto;
 }
 
-.form-message {
-  grid-column: 1 / -1;
-}
-
-.field-row {
-  grid-column: 1 / -1;
+.grid-table {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 2rem;
+  grid-template-columns: 35% 65%;
 }
 
 .field-note {
-  align-self: center;
-  margin: 0;
-  padding: 1rem 0;
+  padding-right: 20px;
+  font-size: small;
 }
 
 .field-control {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-  border-left: 1px solid #000;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px 20px 20px 20px;
 }
 
-.field-row:first-of-type .field-control {
-  border-top: 1px solid #000;
-}
-
-input {
-  width: 100%;
-  padding: 0.65rem;
-}
-
-button {
-  align-self: flex-start;
-  padding: 0.65rem 1rem;
-}
-
-@media (max-width: 640px) {
-  main {
-    grid-template-columns: 1fr;
-    column-gap: 1rem;
-    padding: 1rem;
-  }
-
-  form,
-  .field-row {
-    grid-template-columns: 1fr;
-  }
-
-  .field-note {
-    padding-bottom: 0.25rem;
-  }
-
-  .field-control {
-    padding: 1rem;
-  }
-
-  .submit-row > span {
-    display: none;
-  }
+.field-control-top {
+  border-top: 1px solid black;
 }
