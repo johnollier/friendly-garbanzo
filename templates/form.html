@@ -5,18 +5,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Transfer</title>
-   <!-- Google Fonts Embed Code -->
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Geo&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts Embed Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet">
+  <!-- -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
   <main>
-    <h1>TR1</h1>
-    <h2>HM Land Registry</h2>
-    <h3>Transfer of whole of registered title(s)</h3>
+    <header class="grid-header">
+      <div>
+        <h2>HM Land Registry</h2>
+        <h3>Transfer of whole of registered title(s)</h3>
+      </div>
+      <h1>TR1</h1>
+    </header>
+    <p><strong>Any parts of the form that are not typed should be completed in black ink and in block capitals.</strong>
+    </p>
+
+    <p>If you need more room than is provided for in a panel, and your software allows, you can expand any panel in the
+      form. Alternatively use continuation sheet CS and attach it to this form.</p>
+
+    <p>For information on how HM Land Registry processes your personal information, see our Personal Information
+      Charter. </p>
     <form method="post" aria-label="transfer details">
       {% if error %}
       <p class="form-message" role="alert">{{ error }}</p>
@@ -137,10 +150,10 @@
         </div>
         <div class="field-control">
           <p>9. The transferor transfers with</p>
-          <p>full title guarantee</p>
-          <input id="full-title-guarantee" name="full-title-guarantee" type="radio" required>
-          <p>limited title guarantee</p>
-          <input id="limited" name="limited" type="radio" required>
+          <input id="full-title-guarantee" name="title-guarantee" type="radio" required>
+          <label for="full-title-guarantee">full title guarantee</label><br />
+          <input id="limited-title-guarantee" name="title-guarantee" type="radio" required>
+          <label for="limited-title-guarantee">limited title guarantee</label>
         </div>
 
         <div class="field-note">
@@ -158,11 +171,11 @@
         </div>
         <div class="field-control">
           <p>10. Declaration of trust. The transferee is more than one person and</p>
-          <input id="joint-tenants" name="joint-tenants" type="radio" required>
-          <p>they are to hold the property on trust for themselves as joint tenants</p>
-          <input id="tenants-in-common" name="tenants-in-common" type="radio" required>
-          <p>they are to hold the property on trust for themselves as tenants in common in
-            equal shares</p>
+          <input id="joint-tenants" name="declaration-of-trust" type="radio" required>
+          <label for="joint-tenants">they are to hold the property on trust for themselves as joint tenants</label>
+          <input id="tenants-in-common" name="declaration-of-trust" type="radio" required>
+          <label for="tenants-in-common">they are to hold the property on trust for themselves as tenants in common in
+            equal shares</label>
         </div>
 
         <div class="field-note">
@@ -171,7 +184,7 @@
         </div>
         <div class="field-control">
           <p>11. Additional provisions</p>
-          <input id="additional-provisions" name="additional-provisions" type="text" required>
+          <textarea id="additional-provisions" name="additional-provisions" type="text" required></textarea>
         </div>
 
         <div class="field-note">
@@ -190,7 +203,7 @@
         </div>
         <div class="field-control">
           <p>12. Execution</p>
-          <input id="execution" name="execution" type="text" required>
+          <textarea id="execution" name="execution" type="text" required></textarea>
         </div>
       </section>
 

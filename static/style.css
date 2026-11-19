@@ -9,13 +9,42 @@ body {
 }
 
 main {
-  padding-left: 60px;
-  padding-right: 30px;
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
   background-color: white;
 }
 
+h1 {
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 5.5em;
+  font-weight: 500;
+  text-align: right;
+  margin-top: 0.1em;
+}
+
 h2 {
-  font-family: 'Geo', sans-serif;
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 2.0em;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: 'Tomorrow', sans-serif;
+  color: gray;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.grid-header {
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .grid-table {
@@ -32,7 +61,7 @@ h2 {
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
 }
 
 .field-control-top {
